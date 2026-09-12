@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+venv/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Environment
+.env
+*.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ML / Data
+models/*.pkl
+models/*.pt
+models/*.pth
+models/*.joblib
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/simulated/*
+!data/simulated/.gitkeep
+mlruns/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/build/
+
+# Docker
+docker/secrets/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite3
+
+# AWS
+.aws/
+*.pem
