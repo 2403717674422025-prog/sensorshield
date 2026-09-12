@@ -200,6 +200,33 @@ SensorShield/
 
 ---
 
+## 🔥 Databricks Integration
+
+SensorShield uses Apache Spark on Databricks for large-scale sensor data processing and ML experiment tracking.
+
+### What's in the Databricks notebook (`databricks/SensorShield_Analytics.py`):
+
+| Step | Description |
+|------|-------------|
+| Data Ingestion | Load 52,000 sensor readings from Unity Catalog Volume using PySpark |
+| Spark SQL Analytics | Statistical analysis — mean, stddev, min, max per sensor |
+| Anomaly Detection | Rule-based fault labelling using Spark SQL CASE expressions |
+| Delta Lake | 3 Delta tables: `sensorshield_readings`, `sensorshield_anomalies`, `sensorshield_sensor_summary` |
+| MLflow Tracking | Experiment tracking with parameters and metrics logged to `/SensorShield_Analytics` |
+
+### Run the notebook:
+1. Upload `data/raw/sensor_data.csv` to Databricks Unity Catalog Volume
+2. Open `databricks/SensorShield_Analytics.py` in Databricks
+3. Run all cells
+4. View MLflow experiments at **Experiments → SensorShield_Analytics**
+
+### Delta tables (connect from Power BI):
+- `sensorshield_readings` — raw sensor time series
+- `sensorshield_anomalies` — fault-labelled dataset
+- `sensorshield_sensor_summary` — per-sensor statistics for dashboards
+
+---
+
 ## 📊 Power BI Dashboard
 
 Connect Power BI Desktop to PostgreSQL:
@@ -230,10 +257,11 @@ EMAIL_TO=recipient@gmail.com
 
 **Backend:** Python, FastAPI, SQLAlchemy, Alembic, asyncpg, paho-mqtt  
 **ML:** PyTorch, XGBoost, scikit-learn, NumPy, Pandas  
+**Big Data:** Apache Spark (PySpark), Databricks, Delta Lake, MLflow  
 **Frontend:** React 18, TypeScript, Recharts, WebSocket  
 **Database:** PostgreSQL 16  
 **Infrastructure:** Docker, Nginx, Uvicorn  
-**Analytics:** Power BI  
+**Analytics:** Power BI, Databricks SQL  
 
 ---
 
